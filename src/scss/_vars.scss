@@ -1,0 +1,63 @@
+// This file contains global definitions and variables, like font and color
+// definitions. It’s build for Compass with “Auto Prefix CSS” enabled.
+
+// Font and color definitions.
+// (See http://pearsonified.com/typography/)
+
+// Colors
+
+$color-background:       #fff;
+$color-font:             #333;
+
+// Fonts
+
+$font-family:            -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+// Font sizes
+
+$font-size:              20px;
+
+$font-size-h1:           52px;
+$font-size-h2:           32px;
+$font-size-h3:           25px;
+$font-size-h4:           $font-size;
+$font-size-h5:           $font-size;
+$font-size-h6:           $font-size;
+$font-size-small:        16px;
+
+$line-height:            32px;
+
+// Font weights
+
+$font-weight:            400;
+$font-weight-bold:       700;
+
+// Breakpoints
+
+$breakpoint-xsmall:        320px;
+$breakpoint-small:         480px;
+$breakpoint-medium:        768px;
+$breakpoint-medium-large:  1024px;
+$breakpoint-large:         1280px;
+
+// Page dimensions
+
+$content-width:            1270px;
+$gutter-width:             30px;
+$content-margin:           20px;
+
+// Transitions
+
+$transition:               all .25s ease;
+
+// Enable some basic style sheets for Print?
+// (See https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css)
+
+$enable-print-css:       true;
+
+// You probably shouldn’t edit anything below this line…
+
+$line-height-ratio:     ($line-height / $font-size) * 1;
+$font-size-em:          ($font-size / 16px) * 1em;
+$font-size-pct:         percentage($font-size / 16px);
+$font-size-rem:         ($font-size / 16px) * 1rem;

@@ -1,0 +1,67 @@
+// Create :hover, :focus, :active states.
+// Usage: .class { ... @include hfa() { color: #f00; } }
+@mixin hfa() {
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    @content;
+  }
+}
+
+// “Clearfix”.
+// (See http://www.cssmojo.com/latest_new_clearfix_so_far/)
+// Usage: .class { ... @include clear; }
+@mixin clear() {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+// Set the font size and adjust the line-height.
+// Usage: .class { ... @include font-size(20px); }
+@mixin font-size($font-size, $custom-line-height: false) {
+  @include rem(font-size, $font-size);
+  @if $custom-line-height == auto {//TODO what this?
+    line-height: ceil($font-size / $line-height) * ($line-height / $font-size);
+  }  @else if $custom-line-height{
+    line-height: ($custom-line-height / $font-size) * 1;
+  }
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+@mixin breakPoint($breakPoint, $minBreakPoint: null) {
+  @if ($minBreakPoint) {
+    @media screen and (max-width: #{$breakPoint}) and (min-width: #{$minBreakPoint}) {
+      @content;
+    }
+  } 
+  @else {
+    @media screen and (max-width: #{$breakPoint}) {
+      @content;
+    }
+  }
+}
+
+@mixin responsiveStyle($property, $defaultValue, $settings) {
+  #{$property} : $defaultValue;
+
+  @each $maxWidth, $value in $settings {
+    @media screen and (max-width: #{$maxWidth}px) {
+      #{$property} : $value;
+    }
+  }
+}

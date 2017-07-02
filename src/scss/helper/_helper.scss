@@ -1,0 +1,126 @@
+// Enable “box-sizing: border-box;” for every element?
+// (See http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
+
+@if $enable-border-box == true {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+// Enable some basic style sheets for Print?
+// (See https://github.com/h5bp/html5-boilerplate/blob/master/css/main.css)
+
+@if $enable-print-css == true {
+  @media print {
+    * {
+      background: transparent !important;
+      box-shadow: none !important;
+      color: #000 !important;
+      nowhitespace: afterproperty;
+      text-shadow: none !important;
+    }
+
+    a[href]::after {
+      content: ' (' attr(href) ')'
+    }
+
+    a, a:visited {
+      text-decoration: underline
+    }
+
+    abbr[title]::after {
+      content: ' (' attr(title) ')'
+    }
+
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
+      content: '';
+    }
+
+    pre,
+    blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+
+    thead {
+      display: table-header-group;
+      nowhitespace: afterproperty;
+    }
+
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h2,
+    h3 {
+      page-break-after: avoid
+    }
+  }
+}
+
+// “Clearfix”.
+// (See http://www.cssmojo.com/latest_new_clearfix_so_far/)
+.cf::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+// Hide completely.
+.hide-complete {
+  display: none !important;
+  visibility: hidden;
+}
+
+// Hide text from screen.
+.hide-text {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+// Hide visually and from screenreaders, but maintain layout.
+.invisible {
+  visibility: hidden
+}
+
+// Hide only visually, but have it available for screenreaders.
+.hide-screen {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.hide-screen.focusable:active,
+.hide-screen.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}

@@ -1,0 +1,59 @@
+.column-wrap {
+  @include clear;
+
+  .column {
+    display: block;
+    float: left;
+    margin-right: $content-margin;
+  }
+}
+
+.six {
+  .column {
+    width: calc(((100% - 1px) / 6) - (5 * #{$content-margin} / 6));
+
+    &:nth-child(6n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.five {
+  .column {
+    width: calc(((100% - 1px) / 5) - (4 * #{$content-margin} / 5));
+
+    &:nth-child(5n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.four {
+  .column {
+    width: calc(((100% - 1px) / 4) - (3 * #{$content-margin} / 4));
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.three {
+  .column {
+    width: calc(((100% - 1px) / 3) - (2 * #{$content-margin} / 3));
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.two {
+  .column {
+    width: calc(((100% - 1px) / 2) - (1 * #{$content-margin} / 2));
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+}

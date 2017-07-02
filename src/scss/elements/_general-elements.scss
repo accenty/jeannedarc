@@ -1,0 +1,119 @@
+// Nonspecific definitions.
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: $color-font;
+  color: invert($color-font);
+  text-shadow: none;
+}
+
+html {
+  font-family: $font-family;
+  font-size: $base-font-size;
+  font-weight: $font-weight;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  @include font-size($font-size);
+  background: $color-background;
+  color: $color-font;
+  position: relative;
+  text-rendering: optimizeLegibility;
+}
+
+.content-wrap {
+  margin: auto;
+  padding: 0 $content-margin;
+  max-width: $content-width;
+  width: 100%;
+}
+
+a {
+  @include hfa {
+    text-decoration: none;
+  }
+
+  color: $color-font;
+  text-decoration: underline;
+  transition: $transition;
+}
+
+.active {
+  cursor: default;
+}
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+img,
+embed,
+object,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+  font-style: italic;
+  vertical-align: middle;
+}
+
+hr {
+  background: $color-font;
+  border: 0;
+  height: 1px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+// Headlines
+
+#{headings()} {
+  word-wrap: break-word;
+
+  a {
+    color: $color-font;
+
+    @include hfa {
+      color: $color-font;
+      text-decoration: underline;
+    }
+  }
+}
+
+h1 {
+  @include font-size($font-size-h1);
+}
+
+h2 {
+  @include font-size($font-size-h2);
+}
+
+h3 {
+  @include font-size($font-size-h3);
+}
+
+h4 {
+  @include font-size($font-size-h4);
+}
+
+h5 {
+  @include font-size($font-size-h5);
+}
+
+h6 {
+  @include font-size($font-size-h6);
+}
